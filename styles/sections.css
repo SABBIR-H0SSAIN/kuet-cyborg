@@ -1,0 +1,266 @@
+/* ── GLITCH EFFECT (Loader) ── */
+@keyframes glitch-text {
+
+  0%,
+  100% {
+    text-shadow: 0 0 30px var(--cyan-glow), 0 0 60px var(--cyan-glow);
+  }
+
+  20% {
+    text-shadow: -2px 0 var(--neon-pink), 2px 0 var(--neon-blue);
+  }
+
+  40% {
+    text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-blue);
+  }
+
+  60% {
+    text-shadow: 0 0 30px var(--cyan-glow), 0 0 60px var(--cyan-glow);
+  }
+}
+
+/* ── Scanline overlay (for body) ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.015) 2px,
+      rgba(0, 0, 0, 0.015) 4px);
+  will-change: auto;
+  contain: strict;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 60px;
+    padding-top: 100px;
+  }
+
+  .hero-left {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-cta-group, .hero-stats-row {
+    justify-content: center;
+  }
+
+  .hero-logo-frame {
+    width: 300px;
+    height: 300px;
+  }
+
+  .logo-ring-1 { width: 220px; height: 220px; }
+  .logo-ring-2 { width: 260px; height: 260px; }
+  .logo-ring-3 { width: 300px; height: 300px; }
+  .hero-logo-img, .logo-pulse { width: 160px; height: 160px; }
+
+  .hud-corner {
+    display: none;
+  }
+
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-visual-box {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .events-timeline::before {
+    left: 20px;
+  }
+
+  .event-item:nth-child(odd),
+  .event-item:nth-child(even) {
+    padding-right: 0;
+    padding-left: 50px;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .event-dot {
+    left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 70px 0;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 320px;
+    height: 100vh;
+    background: rgba(5, 5, 8, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 80px 30px 30px;
+    gap: 4px;
+    transition: right 0.4s ease;
+    border-left: 1px solid rgba(0, 240, 255, 0.08);
+    overflow-y: auto;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    width: 100%;
+    text-align: left;
+    border-radius: 8px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .achievement-card {
+    padding: 24px 16px;
+  }
+
+  .achievement-number {
+    font-size: 2rem;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-neon {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-badge {
+    font-size: 0.65rem;
+    padding: 6px 14px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .contact-form {
+    padding: 24px 18px;
+  }
+
+  .events-timeline::before {
+    left: 12px;
+  }
+
+  .event-item:nth-child(odd),
+  .event-item:nth-child(even) {
+    padding-left: 40px;
+  }
+
+  .event-dot {
+    left: 12px;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}

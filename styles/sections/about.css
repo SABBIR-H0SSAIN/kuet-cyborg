@@ -4,16 +4,6 @@
   background: var(--bg-secondary);
 }
 
-#about::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
-}
-
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

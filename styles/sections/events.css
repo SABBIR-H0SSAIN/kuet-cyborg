@@ -1,0 +1,113 @@
+#events {
+  padding: var(--section-padding);
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.events-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.events-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--neon-blue), var(--neon-purple), transparent);
+  transform: translateX(-50%);
+}
+
+.event-item {
+  display: flex;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.event-item:nth-child(odd) {
+  justify-content: flex-start;
+  padding-right: calc(50% + 30px);
+  text-align: right;
+}
+
+.event-item:nth-child(even) {
+  justify-content: flex-end;
+  padding-left: calc(50% + 30px);
+  text-align: left;
+}
+
+.event-dot {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--neon-blue);
+  border: 3px solid var(--bg-secondary);
+  transform: translateX(-50%);
+  box-shadow: 0 0 15px var(--cyan-glow);
+  z-index: 2;
+}
+
+.event-content {
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 240, 255, 0.08);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  backdrop-filter: var(--glass-blur);
+  transition: var(--transition);
+}
+
+.event-content:hover {
+  border-color: rgba(0, 240, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.event-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--neon-purple);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.event-status {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-left: 8px;
+}
+
+.event-status.upcoming {
+  background: rgba(57, 255, 20, 0.1);
+  color: var(--neon-green);
+  border: 1px solid rgba(57, 255, 20, 0.2);
+}
+
+.event-status.past {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.event-content h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.event-content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
