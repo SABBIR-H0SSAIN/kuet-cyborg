@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyborg — Cyber Gaming Club of KUET</title>
+  <meta name="description"
+    content="Cyborg is the premier esports gaming club of KUET. We game, therefore we are. Join the elite squad of competitive gamers." />
+  <meta name="keywords" content="esports, gaming club, KUET, Cyborg, competitive gaming, university esports" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/sections/hero.css" />
+  <link rel="stylesheet" href="styles/sections/about.css" />
+  <link rel="stylesheet" href="styles/sections/achievements.css" />
+  <link rel="stylesheet" href="styles/sections/games.css" />
+  <link rel="stylesheet" href="styles/sections/team.css" />
+  <link rel="stylesheet" href="styles/sections/events.css" />
+  <link rel="stylesheet" href="styles/sections/gallery.css" />
+  <link rel="stylesheet" href="styles/sections/community.css" />
+  <link rel="stylesheet" href="styles/sections/contact.css" />
+  <link rel="stylesheet" href="styles/sections/footer.css" />
+  <link rel="stylesheet" href="styles/sections/snake-game.css" />
+  <link rel="stylesheet" href="styles/sections.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loader-screen" id="loader">
+    <div class="loader-logo">
+      <img src="assets/logos/cybrog-logo.jpg" alt="Cyborg Logo" class="loader-logo-img" />
+      CYBORG
+    </div>
+    <div class="loader-bar-container">
+      <div class="loader-bar"></div>
+    </div>
+    <div class="loader-text">INITIALIZING SYSTEM...</div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="assets/logos/cybrog-logo.jpg" alt="Cyborg Logo" class="nav-logo-img" />
+        CYBORG
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#achievements">Stats</a>
+        <a href="#games">Games</a>
+        <a href="#team">Team</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#community">Community</a>
+        <a href="#contact">Join</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-gradient-overlay"></div>
+
+
+
+    <!-- Diagonal Scan Line -->
+    <div class="hero-scanline"></div>
+
+    <div class="hero-content hero-split">
+      <!-- LEFT: Content -->
+      <div class="hero-left">
+        <div class="hero-status-bar">
+          <span class="status-dot"></span>
+          <span>SYS:ONLINE</span>
+          <span class="status-sep">|</span>
+          <span>PING:12ms</span>
+          <span class="status-sep">|</span>
+          <span>KUET:CONNECTED</span>
+        </div>
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Cyber Gaming Club of KUET
+        </div>
+        <h1 class="hero-title">
+          <span class="line">We Game,</span>
+          <span class="line"><span class="highlight">Therefore We Are.</span></span>
+        </h1>
+        <p class="hero-subtitle">
+          <span id="typed-text"></span><span class="cursor"></span>
+        </p>
+        <div class="hero-cta-group">
+          <a href="#contact" class="btn-neon btn-primary">Join the Squad</a>
+          <a href="#achievements" class="btn-neon btn-outline">View Achievements</a>
+        </div>
+
+
+      </div>
+
+      <!-- RIGHT: Logo Visual -->
+      <div class="hero-right">
+        <div class="hero-logo-frame">
+          <div class="logo-ring logo-ring-1"></div>
+          <div class="logo-ring logo-ring-2"></div>
+          <div class="logo-ring logo-ring-3"></div>
+          <img src="assets/logos/cybrog-logo.jpg" alt="Cyborg Logo" class="hero-logo-img" />
+          <div class="logo-pulse"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal-left">
+          <div class="about-visual-box" id="snake-container">
+            <canvas id="snake-game"></canvas>
+            <div class="snake-score">Score: <span id="snake-score-val">0</span></div>
+            <div id="snake-play-again" class="snake-overlay hidden">
+              <span>Play Again</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text reveal-right">
+          <span class="section-tag">// who we are</span>
+          <h3>More Than a Club. <span>A Brotherhood.</span></h3>
+          <p>
+            Cyborg — Cyber Gaming Club of KUET is more than just a gaming club. We are a community of
+            passionate gamers, strategists, and competitors united by our love for the game. Founded at
+            Khulna University of Engineering & Technology, we represent the cutting edge of university esports.
+          </p>
+          <p>
+            From late-night scrimmages to championship stages, we train hard, play harder, and build
+            lifelong bonds through the fires of competition. Whether it's FPS, MOBA, Battle Royale,
+            or Mobile Esports — Cyborg dominates.
+          </p>
+          <div class="about-stats-row">
+            <div class="about-stat">
+              <span class="stat-num">2021</span>
+              <span class="stat-label">Founded</span>
+            </div>
+            <div class="about-stat">
+              <span class="stat-num">200+</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="about-stat">
+              <span class="stat-num">#1</span>
+              <span class="stat-label">In KUET</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// our record</span>
+        <h2 class="section-title">Battle <span>Statistics</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="achievements-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Games Section -->
+  <section id="games">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// our arsenal</span>
+        <h2 class="section-title">Games We <span>Dominate</span></h2>
+        <div class="section-line"></div>
+        <p class="section-desc">From tactical FPS to intense mobile battles, Cyborg competes across every major title.
+        </p>
+      </div>
+      <div class="games-tabs reveal">
+        <button class="game-tab active" data-filter="all">All Games</button>
+        <button class="game-tab" data-filter="pc">PC</button>
+        <button class="game-tab" data-filter="mobile">Mobile</button>
+        <button class="game-tab" data-filter="esports">Esports</button>
+      </div>
+      <div class="games-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// the roster</span>
+        <h2 class="section-title">Meet the <span>Squad</span></h2>
+        <div class="section-line"></div>
+        <p class="section-desc">The masterminds and warriors behind Cyborg's dominance.</p>
+      </div>
+      <div class="team-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// battle log</span>
+        <h2 class="section-title">Events & <span>Tournaments</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="events-timeline">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// highlights</span>
+        <h2 class="section-title">Battle <span>Gallery</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery items will be populated by JS with generated images -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section id="community">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// connect</span>
+        <h2 class="section-title">Join the <span>Network</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="community-grid">
+        <div class="community-card reveal">
+          <span class="community-icon"><i class="fab fa-discord"></i></span>
+          <h4>Discord Server</h4>
+          <p>Join 200+ gamers in our active Discord community. Voice chat, scrims, memes, and more.</p>
+          <a href="#" class="community-link">Join Server →</a>
+        </div>
+        <div class="community-card reveal">
+          <span class="community-icon"><i class="fab fa-facebook-f"></i></span>
+          <h4>Facebook Page</h4>
+          <p>Follow us for event announcements, highlights, and behind-the-scenes content.</p>
+          <a href="#" class="community-link">Follow Us →</a>
+        </div>
+        <div class="community-card reveal">
+          <span class="community-icon"><i class="fab fa-instagram"></i></span>
+          <h4>Instagram</h4>
+          <p>Reels, stories, and tournament highlights. See Cyborg in action.</p>
+          <a href="#" class="community-link">Follow Us →</a>
+        </div>
+        <div class="community-card reveal">
+          <span class="community-icon"><i class="fab fa-youtube"></i></span>
+          <h4>YouTube Channel</h4>
+          <p>Watch tournament VODs, gameplay highlights, and behind-the-scenes content.</p>
+          <a href="#" class="community-link">Subscribe →</a>
+        </div>
+      </div>
+      <div class="community-cta reveal">
+        <h3>Ready to Level Up?</h3>
+        <p>Cyborg isn't just a club — it's a movement. Be part of KUET's most elite gaming community.</p>
+        <a href="#contact" class="btn-neon btn-primary">Join Cyborg Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// recruit</span>
+        <h2 class="section-title">Join the <span>Squad</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contact-info reveal-left">
+          <h3>Recruitment Open</h3>
+          <p>
+            Think you've got what it takes? Fill out the form and our team will
+            reach out. All skill levels welcome — from casuals to sweats.
+          </p>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <span>KUET Campus, Khulna, Bangladesh</span>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+            <span>cyborg@kuet.club</span>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fab fa-discord"></i></div>
+            <span>discord.gg/cyborg-kuet</span>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+            <span>Responses within 48 hours</span>
+          </div>
+        </div>
+        <form class="contact-form reveal-right" id="contactForm">
+          <h4 class="form-header">Player Registration</h4>
+          <p class="form-subheader">// Initialize recruitment protocol</p>
+          <div class="form-group">
+            <label for="name">Player Name</label>
+            <input type="text" id="name" placeholder="Enter your IGN or real name" required />
+          </div>
+          <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" id="department" placeholder="e.g. CSE, EEE, ME" required />
+          </div>
+          <div class="form-group">
+            <label for="game-interest">Primary Game</label>
+            <select id="game-interest" required>
+              <option value="" disabled selected>Select your main game</option>
+              <option value="valorant">Valorant</option>
+              <option value="pubg-mobile">PUBG Mobile</option>
+              <option value="cs2">CS2</option>
+              <option value="lol">League of Legends</option>
+              <option value="dota2">Dota 2</option>
+              <option value="free-fire">Free Fire</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Why Cyborg?</label>
+            <textarea id="message" placeholder="Tell us why you want to join the squad..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="form-submit">⚡ Submit Application</button>
+          <p class="form-response" id="formResponse">✅ Application received! We'll contact you on Discord.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img src="assets/logos/cybrog-logo.jpg" alt="Cyborg Logo" class="footer-logo-img" />
+            <h3>Cyborg</h3>
+          </div>
+          <p>The premier esports club of KUET. Building champions, one game at a time.</p>
+        </div>
+        <div class="footer-group">
+          <h4>Navigate</h4>
+          <a href="#about">About</a>
+          <a href="#achievements">Stats</a>
+          <a href="#games">Games</a>
+          <a href="#team">Team</a>
+        </div>
+        <div class="footer-group">
+          <h4>Connect</h4>
+          <a href="#"><i class="fab fa-discord"></i> Discord</a>
+          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+        <div class="footer-group">
+          <h4>More</h4>
+          <a href="#events">Events</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Join</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Cyborg — Cyber Gaming Club of KUET. Built with <span class="heart">♥</span> and gaming passion.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close" id="lightboxClose">✕</div>
+    <div class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</div>
+    <div class="lightbox-nav lightbox-next" id="lightboxNext">›</div>
+    <img src="" alt="Gallery Image" id="lightboxImg" />
+  </div>
+
+  <script src="scripts/config.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/modules/cursor.js"></script>
+  <script src="scripts/modules/particles.js"></script>
+  <script src="scripts/modules/gallery.js"></script>
+  <script src="scripts/modules/snake-game.js"></script>
+</body>
+
+</html>
