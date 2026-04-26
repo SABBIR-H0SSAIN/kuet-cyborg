@@ -85,13 +85,14 @@ const CONFIG = {
   ],
 
   gallery: [
-    { title: 'Tournament Finals', color: '#0a1628', accent: '#00f0ff', icon: '🏆' },
-    { title: 'Team Practice', color: '#140a28', accent: '#b026ff', icon: '🎮' },
-    { title: 'LAN Party Night', color: '#0a2818', accent: '#39ff14', icon: '💻' },
-    { title: 'Award Ceremony', color: '#281a0a', accent: '#ff6b00', icon: '🥇' },
-    { title: 'Cosplay Event', color: '#280a1a', accent: '#ff2d95', icon: '🎭' },
-    { title: 'Campus Meetup', color: '#0a1828', accent: '#00f0ff', icon: '🤝' },
-    { title: 'Stream Setup', color: '#1a0a28', accent: '#b026ff', icon: '📡' },
-    { title: 'Victory Moment', color: '#0a280a', accent: '#39ff14', icon: '🎉' }
+    { title: 'Valorant Champions', image: 'assets/galary/valorant_champion.jpg' },
+    { title: 'Top Fragger Award', image: 'assets/galary/top_fragger_pug.jpg' },
+    { title: 'Cybertron Organizers', image: 'assets/galary/cybertron_event_organizers.jpg' },
+    { title: 'LAN Gaming Event', image: 'assets/galary/lan_event_kuet_cc.jpg' },
+    { title: 'VC Recognition', image: 'assets/galary/cybertron_gaming_fitesa2024_vc_recognition.jpg' },
+    { title: 'PUBG Campus Squad', image: 'assets/galary/pubg_campus_club_2025.jpg' },
+    { title: 'Gaming Fiesta 2023', image: 'assets/galary/cybertrong_gaming_fitesa2023.jpg' },
+    { title: 'Cyborg Club Meetup', image: 'assets/galary/club_mettup.jpg' },
+    { title: 'PMCC Championship 2025', image: 'assets/galary/2025_pmcc_championship.jpg' }
   ]
 };

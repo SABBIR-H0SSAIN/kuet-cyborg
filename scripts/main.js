@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-  // Loading Screen
+// Loading Screen
   const loader = document.getElementById('loader');
   window.addEventListener('load', () => {
     setTimeout(() => {

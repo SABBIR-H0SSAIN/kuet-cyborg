@@ -56,60 +56,7 @@
   text-align: left;
 }
 
-.hero-status-bar {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--neon-blue);
-  background: rgba(0, 240, 255, 0.05);
-  border: 1px solid rgba(0, 240, 255, 0.15);
-  padding: 6px 16px;
-  margin-bottom: 24px;
-  border-radius: 4px;
-  letter-spacing: 0.1em;
-}
 
-.hero-status-bar .status-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--neon-green);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--neon-green);
-  animation: blink 1.5s infinite;
-}
-
-.status-sep {
-  color: rgba(255, 255, 255, 0.2);
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--neon-purple);
-  padding: 8px 0;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-}
-
-.hero-badge .badge-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--neon-purple);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--neon-purple);
-  animation: blink 1.5s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
 
 .hero-title {
   font-family: var(--font-display);
