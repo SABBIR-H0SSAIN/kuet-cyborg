@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (teamGrid && CONFIG.team) {
       teamGrid.innerHTML = CONFIG.team.map(member => `
         <div class="team-card reveal">
-          <div class="team-avatar">${member.initials}</div>
+          <div class="team-avatar">${member.image ? `<img src="${member.image}" alt="${member.name}" style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.5); transform-origin: top;" />` : member.initials}</div>
           <h4>${member.name}</h4>
           <span class="team-role">${member.role}</span>
           <div class="team-socials">
