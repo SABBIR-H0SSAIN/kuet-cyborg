@@ -11,6 +11,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  cursor: auto !important;
 }
 
 .hero-grid-overlay {

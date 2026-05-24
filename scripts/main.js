@@ -279,16 +279,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Contact Form
-  const contactForm = document.getElementById('contactForm');
-  const formResponse = document.getElementById('formResponse');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      formResponse.classList.add('show');
-      contactForm.reset();
-      setTimeout(() => { formResponse.classList.remove('show'); }, 5000);
-    });
-  }
-
 });

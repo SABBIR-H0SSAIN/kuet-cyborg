@@ -40,6 +40,7 @@
   box-sizing: border-box;
 }
 
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
@@ -73,49 +74,8 @@ body {
   overflow-x: hidden;
   font-weight: 400;
   letter-spacing: 0.02em;
-  cursor: none !important;
 }
 
-*, *::before, *::after {
-  cursor: none !important;
-}
-
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  border: 1px solid rgba(0, 240, 255, 0.6);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate3d(0, 0, 0) translate(-50%, -50%);
-  transition: width 0.25s cubic-bezier(0.25, 1, 0.5, 1), height 0.25s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.25s ease, opacity 0.25s ease;
-  will-change: transform, width, height, opacity;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.custom-cursor.hidden {
-  opacity: 0;
-}
-
-.custom-cursor::after {
-  content: '';
-  width: 4px;
-  height: 4px;
-  background: var(--neon-blue);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--cyan-glow);
-}
-
-.custom-cursor.hovering {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0, 240, 255, 0.1);
-}
 
 a {
   text-decoration: none;

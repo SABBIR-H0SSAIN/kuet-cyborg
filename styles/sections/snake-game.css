@@ -5,6 +5,7 @@
   height: 100%;
   z-index: 5;
   image-rendering: pixelated;
+  cursor: auto !important;
 }
 
 .snake-overlay {

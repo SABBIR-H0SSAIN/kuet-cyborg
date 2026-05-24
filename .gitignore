@@ -1,0 +1,29 @@
+# Visual Studio internal folders
+.vs/
+.vscode/
+
+# Build and bin directories
+Bin/
+bin/
+obj/
+
+# NuGet packages
+packages/
+*.nupkg
+*.snupkg
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# IDE specific
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
