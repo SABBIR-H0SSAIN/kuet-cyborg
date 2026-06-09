@@ -125,23 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
       `).join('');
     }
 
-    // 2. Games
-    const gamesGrid = document.querySelector('.games-grid');
-    if (gamesGrid && CONFIG.games) {
-      gamesGrid.innerHTML = CONFIG.games.map(game => `
-        <div class="game-card reveal" data-category="${game.category}">
-          <div class="game-card-image" style="background-image: url('${game.image}');"></div>
-          <span class="game-card-badge">${game.badge}</span>
-          <div class="game-card-body">
-            <h4>${game.title}</h4>
-            <p>${game.desc}</p>
-          </div>
-          <div class="game-card-footer">
-            ${game.tags.map(tag => `<span class="game-tag">${tag}</span>`).join('')}
-          </div>
-        </div>
-      `).join('');
-    }
+
+
+    // 2. Games (Rendered via Server-Side Repeater)
+    // No JS fetch needed.
 
     // 3. Team
     const teamGrid = document.querySelector('.team-grid');
@@ -258,6 +245,12 @@ document.addEventListener('DOMContentLoaded', () => {
       styleSheet.id = 'fadeInStyle';
       styleSheet.textContent = `@keyframes fadeIn { from { opacity: 0; transform: translateY(16px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }`;
       document.head.appendChild(styleSheet);
+    }
+
+    // Trigger active filter initially
+    const activeTab = document.querySelector('.game-tab.active');
+    if (activeTab) {
+      activeTab.click();
     }
   }
 

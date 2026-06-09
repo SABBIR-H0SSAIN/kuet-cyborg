@@ -46,6 +46,32 @@ public partial class _Default : Page
         if (!IsPostBack)
         {
             lblResponse.Visible = false;
+            BindGames();
+        }
+    }
+
+    private void BindGames()
+    {
+        try
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["CyborgConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM games ORDER BY id ASC", connection))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        rptGames.DataSource = dt;
+                        rptGames.DataBind();
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("BindGames Error: " + ex.Message);
         }
     }
 
@@ -125,5 +151,18 @@ public partial class _Default : Page
             System.Diagnostics.Debug.WriteLine("General Error: " + ex.Message);
             return false;
         }
+    }
+
+    protected string GetTagsHtml(object tagsObj)
+    {
+        if (tagsObj == null || tagsObj == DBNull.Value) return "";
+        string tagsStr = tagsObj.ToString();
+        string[] tags = tagsStr.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+        string html = "";
+        foreach (string tag in tags)
+        {
+            html += $"<span class=\"game-tag\">{tag.Trim()}</span>";
+        }
+        return html;
     }
 }

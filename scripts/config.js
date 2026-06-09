@@ -11,58 +11,7 @@ const CONFIG = {
     { icon: '🏆', target: 25, label: 'Tournaments Won' },
     { icon: '🎮', target: 50, label: 'Events Hosted' },
     { icon: '👥', target: 200, label: 'Active Members' },
-    { icon: '⚔️', target: 150, label: 'Matches Played' }
-  ],
-
-  games: [
-    {
-      title: 'Valorant',
-      category: 'pc esports',
-      badge: 'PC',
-      image: 'https://images.steamusercontent.com/ugc/1009310639741043947/C4780FD7B53B39EFE4A536842FC1281A48A1256F/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true',
-      desc: 'Our tactical FPS division leads the charge with precision and strategy in every round.',
-      tags: ['FPS', 'Tactical']
-    },
-    {
-      title: 'PUBG Mobile',
-      category: 'mobile',
-      badge: 'Mobile',
-      image: 'https://upload.wikimedia.org/wikipedia/en/4/44/PlayerUnknown%27s_Battlegrounds_Mobile.webp',
-      desc: 'Dominating battle royales across mobile platforms with sharp positioning and rotations.',
-      tags: ['Battle Royale', 'Mobile']
-    },
-    {
-      title: 'League of Legends',
-      category: 'pc esports',
-      badge: 'PC',
-      image: 'https://www.exitlag.com/blog/wp-content/uploads/2024/10/league-of-legends-download-1.webp',
-      desc: 'Strategic MOBA gameplay with our roster of well-coordinated and mechanically gifted players.',
-      tags: ['MOBA', 'Strategy']
-    },
-    {
-      title: 'CS2',
-      category: 'pc esports',
-      badge: 'Esports',
-      image: 'https://gaming-cdn.com/images/products/13664/616x353/counter-strike-2-pc-game-steam-cover.jpg?v=1695885435',
-      desc: 'The OG competitive FPS. Our CS2 roster brings raw skill and veteran experience.',
-      tags: ['FPS', 'Competitive']
-    },
-    {
-      title: 'Free Fire',
-      category: 'mobile',
-      badge: 'Mobile',
-      image: 'https://images.hindustantimes.com/tech/img/2022/06/23/1600x900/54f31449f5f91cf0cc223cc635cd5952jpg_1655955051259_1655955067513.jpeg',
-      desc: 'Fast-paced mobile battle royale where our squad delivers swift eliminations.',
-      tags: ['Battle Royale', 'Mobile']
-    },
-    {
-      title: 'Dota 2',
-      category: 'pc esports',
-      badge: 'PC',
-      image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/header.jpg?t=1769535998',
-      desc: 'Complex strategy meets mechanical precision. Our Dota roster thrives on teamwork.',
-      tags: ['MOBA', 'Strategy']
-    }
+    { icon: 'fas fa-trophy', target: 150, label: 'Matches Played' }
   ],
 
   team: [

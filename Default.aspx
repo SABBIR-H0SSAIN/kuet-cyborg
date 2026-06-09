@@ -191,13 +191,28 @@
           <p class="section-desc">From tactical FPS to intense mobile battles, Cyborg competes across every major title.
           </p>
         </div>
-        <div class="games-tabs reveal">
-          <button class="game-tab active" data-filter="all">All Games</button>
-          <button class="game-tab" data-filter="pc">PC</button>
-          <button class="game-tab" data-filter="mobile">Mobile</button>
-          <button class="game-tab" data-filter="esports">Esports</button>
-        </div>
+          <div class="games-tabs reveal">
+            <button type="button" class="game-tab active" data-filter="all">All Games</button>
+            <button type="button" class="game-tab" data-filter="pc">PC</button>
+            <button type="button" class="game-tab" data-filter="mobile">Mobile</button>
+            <button type="button" class="game-tab" data-filter="esports">Esports</button>
+          </div>
         <div class="games-grid">
+          <asp:Repeater ID="rptGames" runat="server">
+            <ItemTemplate>
+              <div class="game-card reveal" data-category='<%# Eval("category") %>'>
+                <div class="game-card-image" style="background-image: url('<%# Eval("image_url") %>')"></div>
+                <span class="game-card-badge"><%# Eval("badge") %></span>
+                <div class="game-card-body">
+                  <h4><%# Eval("title") %></h4>
+                  <p><%# Eval("description") %></p>
+                </div>
+                <div class="game-card-footer">
+                  <%# GetTagsHtml(Eval("tags")) %>
+                </div>
+              </div>
+            </ItemTemplate>
+          </asp:Repeater>
         </div>
       </div>
     </section>
@@ -405,8 +420,8 @@
       <img src="" alt="Gallery Image" id="lightboxImg" />
     </div>
 
-    <script src="scripts/config.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/config.js?v=2"></script>
+    <script src="scripts/main.js?v=2"></script>
     <script src="scripts/modules/particles.js"></script>
     <script src="scripts/modules/gallery.js"></script>
 
@@ -426,3 +441,5 @@
 </body>
 
 </html>
+
+<!-- touch -->
