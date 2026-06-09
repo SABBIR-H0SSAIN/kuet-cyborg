@@ -9,6 +9,39 @@ public partial class _Default : Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Generate rounded favicon if it doesn't exist
+        try
+        {
+            string physicalPath = Server.MapPath("~/assets/logos/cybrog-logo.jpg");
+            string targetPath = Server.MapPath("~/assets/logos/cybrog-logo-rounded.png");
+            if (!System.IO.File.Exists(targetPath) && System.IO.File.Exists(physicalPath))
+            {
+                using (var srcImage = System.Drawing.Image.FromFile(physicalPath))
+                {
+                    int minSize = Math.Min(srcImage.Width, srcImage.Height);
+                    using (var destImage = new System.Drawing.Bitmap(minSize, minSize))
+                    {
+                        using (var g = System.Drawing.Graphics.FromImage(destImage))
+                        {
+                            g.Clear(System.Drawing.Color.Transparent);
+                            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                            using (var path = new System.Drawing.Drawing2D.GraphicsPath())
+                            {
+                                path.AddEllipse(0, 0, minSize, minSize);
+                                g.SetClip(path);
+                                g.DrawImage(srcImage, new System.Drawing.Rectangle(0, 0, minSize, minSize), new System.Drawing.Rectangle((srcImage.Width - minSize) / 2, (srcImage.Height - minSize) / 2, minSize, minSize), System.Drawing.GraphicsUnit.Pixel);
+                            }
+                        }
+                        destImage.Save(targetPath, System.Drawing.Imaging.ImageFormat.Png);
+                    }
+                }
+            }
+        }
+        catch (Exception)
+        {
+            // Fail silently if permissions or GDI issues prevent generation
+        }
+
         // On initial load, ensure response label is hidden
         if (!IsPostBack)
         {

@@ -5,7 +5,7 @@
 <head runat="server">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cyborg — Cyber Gaming Club of KUET</title>
+  <title>Cyborg</title>
   <meta name="description"
     content="Cyborg is the premier esports gaming club of KUET. We game, therefore we are. Join the elite squad of competitive gamers." />
   <meta name="keywords" content="esports, gaming club, KUET, Cyborg, competitive gaming, university esports" />
@@ -21,10 +21,9 @@
   <link rel="stylesheet" href="styles/sections/community.css" />
   <link rel="stylesheet" href="styles/sections/contact.css" />
   <link rel="stylesheet" href="styles/sections/footer.css" />
-  <link rel="stylesheet" href="styles/sections/snake-game.css" />
+  <link rel="stylesheet" href="styles/sections/about-logo.css" />
   <link rel="stylesheet" href="styles/sections.css" />
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>" />
+  <link rel="icon" type="image/png" href="assets/logos/cybrog-logo-rounded.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     /* FORCE SYSTEM CURSOR — overrides all external CSS including cached files */
@@ -128,27 +127,28 @@
       <div class="container">
         <div class="about-grid">
           <div class="about-visual reveal-left">
-            <div class="about-visual-box" id="snake-container">
-              <canvas id="snake-game"></canvas>
-              <div class="snake-score">Score: <span id="snake-score-val">0</span></div>
-              <div id="snake-play-again" class="snake-overlay hidden">
-                <span>Play Again</span>
-              </div>
+            <div class="about-logo-box">
+              <div class="about-logo-ring"></div>
+              <div class="about-logo-corners"></div>
+              <img src="assets/logos/cybrog-logo.jpg" alt="Cyborg Logo" class="about-logo-img" />
+              <div class="about-logo-glow"></div>
             </div>
           </div>
           <div class="about-text reveal-right">
             <span class="section-tag">// who we are</span>
             <h3>More Than a Club. <span>A Brotherhood.</span></h3>
-            <p>
-              Cyborg — Cyber Gaming Club of KUET is more than just a gaming club. We are a community of
-              passionate gamers, strategists, and competitors united by our love for the game. Founded at
-              Khulna University of Engineering &amp; Technology, we represent the cutting edge of university esports.
-            </p>
-            <p>
-              From late-night scrimmages to championship stages, we train hard, play harder, and build
-              lifelong bonds through the fires of competition. Whether it's FPS, MOBA, Battle Royale,
-              or Mobile Esports — Cyborg dominates.
-            </p>
+            <div class="about-desc-wrapper">
+              <p>
+                Cyborg &mdash; Cyber Gaming Club of KUET is more than just a gaming club. We are a community of
+                passionate gamers, strategists, and competitors united by our love for the game. Founded at
+                Khulna University of Engineering &amp; Technology, we represent the cutting edge of university esports.
+              </p>
+              <p>
+                From late-night scrimmages to championship stages, we train hard, play harder, and build
+                lifelong bonds through the fires of competition. Whether it's FPS, MOBA, Battle Royale,
+                or Mobile Esports &mdash; Cyborg dominates.
+              </p>
+            </div>
             <div class="about-stats-row">
               <div class="about-stat">
                 <span class="stat-num">2011</span>
@@ -275,7 +275,7 @@
         </div>
         <div class="community-cta reveal">
           <h3>Ready to Level Up?</h3>
-          <p>Cyborg isn't just a club — it's a movement. Be part of KUET's most elite gaming community.</p>
+          <p>Cyborg isn't just a club &mdash; it's a movement. Be part of KUET's most elite gaming community.</p>
           <a href="#contact" class="btn-neon btn-primary">ENTER THE LOBBY</a>
         </div>
       </div>
@@ -392,7 +392,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; <%= DateTime.Now.Year %> Cyborg — Cyber Gaming Club of KUET</p>
+          <p>&copy; <%= DateTime.Now.Year %> Cyborg &mdash; Cyber Gaming Club of KUET</p>
         </div>
       </div>
     </footer>
@@ -409,7 +409,7 @@
     <script src="scripts/main.js"></script>
     <script src="scripts/modules/particles.js"></script>
     <script src="scripts/modules/gallery.js"></script>
-    <script src="scripts/modules/snake-game.js"></script>
+
 
     <!-- Fix ASP.NET WebForms postback anchor scroll jump -->
     <script>
