@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="styles/sections/community.css" />
   <link rel="stylesheet" href="styles/sections/contact.css" />
   <link rel="stylesheet" href="styles/sections/footer.css" />
-  <link rel="stylesheet" href="styles/sections/about-logo.css" />
+  <link rel="stylesheet" href="styles/sections/about-logo.css?v=2" />
   <link rel="stylesheet" href="styles/sections.css" />
   <link rel="icon" type="image/png" href="assets/logos/cybrog-logo-rounded.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -238,7 +238,21 @@
           <h2 class="section-title">Events &amp; <span>Tournaments</span></h2>
           <div class="section-line"></div>
         </div>
-        <div class="events-timeline"></div>
+        <div class="events-timeline">
+          <asp:Repeater ID="rptEvents" runat="server">
+            <ItemTemplate>
+              <div class="event-item reveal-<%# Eval("alignment") %>">
+                <div class="event-dot"></div>
+                <div class="event-content">
+                  <span class="event-date"><%# Eval("event_date") %></span>
+                  <span class="event-status <%# Eval("status") %>"><%# Eval("status") %></span>
+                  <h4><%# Eval("title") %></h4>
+                  <p><%# Eval("description") %></p>
+                </div>
+              </div>
+            </ItemTemplate>
+          </asp:Repeater>
+        </div>
       </div>
     </section>
 

@@ -27,13 +27,6 @@ const CONFIG = {
     { name: 'Tahmed Mahir', role: 'Assistant General Secretary', initials: 'TM', image: 'assets/members/tahmed-mahir.jpg', socials: { facebook: '#', discord: '#', linkedin: '#' } }
   ],
 
-  events: [
-    { date: 'June 2026', status: 'upcoming', title: 'Cyborg Clash 4.0', desc: 'Our flagship inter-university esports tournament featuring Valorant, PUBG Mobile, and CS2 with a prize pool of \u09F350,000.', align: 'left' },
-    { date: 'March 2026', status: 'upcoming', title: 'LAN Party Night', desc: 'An all-night gaming marathon at the KUET campus with custom setups, mini tournaments, and community bonding.', align: 'right' },
-    { date: 'Jan 2026', status: 'past', title: 'KUET Gaming Fest', desc: '3-day gaming festival with workshops, Cosplay, and competitive matches. Over 300 participants from 12 universities.', align: 'left' },
-    { date: 'Oct 2025', status: 'past', title: 'Cyborg Clash 3.0', desc: "National-level esports competition. Cyborg's Valorant team secured 1st place against 64 competing teams.", align: 'right' },
-    { date: 'July 2025', status: 'past', title: 'Summer Bootcamp', desc: 'Intensive 2-week training camp covering aim training, strategy, team coordination, and mental fortitude.', align: 'left' }
-  ],
 
   gallery: [
     { title: 'Valorant Champions', image: 'assets/galary/valorant_champion.jpg' },

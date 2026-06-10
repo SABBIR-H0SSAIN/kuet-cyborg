@@ -47,6 +47,7 @@ public partial class _Default : Page
         {
             lblResponse.Visible = false;
             BindGames();
+            BindEvents();
         }
     }
 
@@ -72,6 +73,31 @@ public partial class _Default : Page
         catch (Exception ex)
         {
             System.Diagnostics.Debug.WriteLine("BindGames Error: " + ex.Message);
+        }
+    }
+
+    private void BindEvents()
+    {
+        try
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["CyborgConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM events ORDER BY id ASC", connection))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        rptEvents.DataSource = dt;
+                        rptEvents.DataBind();
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("BindEvents Error: " + ex.Message);
         }
     }
 

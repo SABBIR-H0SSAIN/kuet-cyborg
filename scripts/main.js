@@ -147,21 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
       `).join('');
     }
 
-    // 4. Events
-    const eventsTimeline = document.querySelector('.events-timeline');
-    if (eventsTimeline && CONFIG.events) {
-      eventsTimeline.innerHTML = CONFIG.events.map(event => `
-        <div class="event-item reveal-${event.align}">
-          <div class="event-dot"></div>
-          <div class="event-content">
-            <span class="event-date">${event.date}</span>
-            <span class="event-status ${event.status}">${event.status}</span>
-            <h4>${event.title}</h4>
-            <p>${event.desc}</p>
-          </div>
-        </div>
-      `).join('');
-    }
+    // 4. Events (Rendered via Server-Side Repeater)
+    // No JS rendering needed.
 
     setupObservers();
     setupFilters();
