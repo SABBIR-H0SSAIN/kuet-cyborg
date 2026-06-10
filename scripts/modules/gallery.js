@@ -2,23 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleryGrid = document.getElementById('galleryGrid');
   if (!galleryGrid) return;
 
-  const galleryData = CONFIG.gallery || [];
+  const galleryItems = galleryGrid.querySelectorAll('.gallery-item');
   const galleryImages = [];
 
-  galleryData.forEach((item, index) => {
-    const imgSrc = item.image;
-    galleryImages.push(imgSrc);
+  galleryItems.forEach((item, index) => {
+    const img = item.querySelector('img');
+    if (img) {
+      galleryImages.push(img.getAttribute('src'));
+    } else {
+      galleryImages.push('');
+    }
 
-    const galleryItem = document.createElement('div');
-    galleryItem.className = 'gallery-item reveal-scale';
-    galleryItem.innerHTML = `
-      <img src="${imgSrc}" alt="${item.title}" loading="lazy" />
-      <div class="gallery-item-overlay">
-        <span>${item.title}</span>
-      </div>
-    `;
-    galleryItem.addEventListener('click', () => openLightbox(index));
-    galleryGrid.appendChild(galleryItem);
+    item.addEventListener('click', () => openLightbox(index));
   });
 
   if (typeof window.revealObserver !== 'undefined') {

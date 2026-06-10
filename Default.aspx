@@ -264,7 +264,18 @@
           <h2 class="section-title">Battle <span>Gallery</span></h2>
           <div class="section-line"></div>
         </div>
-        <div class="gallery-grid" id="galleryGrid"></div>
+        <div class="gallery-grid" id="galleryGrid">
+          <asp:Repeater ID="rptGallery" runat="server">
+            <ItemTemplate>
+              <div class="gallery-item reveal-scale">
+                <img src="<%# Eval("image_url") %>" alt="<%# Eval("title") %>" loading="lazy" />
+                <div class="gallery-item-overlay">
+                  <span><%# Eval("title") %></span>
+                </div>
+              </div>
+            </ItemTemplate>
+          </asp:Repeater>
+        </div>
       </div>
     </section>
 

@@ -28,15 +28,4 @@ const CONFIG = {
   ],
 
 
-  gallery: [
-    { title: 'Valorant Champions', image: 'assets/galary/valorant_champion.jpg' },
-    { title: 'Top Fragger Award', image: 'assets/galary/top_fragger_pug.jpg' },
-    { title: 'Cybertron Organizers', image: 'assets/galary/cybertron_event_organizers.jpg' },
-    { title: 'LAN Gaming Event', image: 'assets/galary/lan_event_kuet_cc.jpg' },
-    { title: 'VC Recognition', image: 'assets/galary/cybertron_gaming_fitesa2024_vc_recognition.jpg' },
-    { title: 'PUBG Campus Squad', image: 'assets/galary/pubg_campus_club_2025.jpg' },
-    { title: 'Gaming Fiesta 2023', image: 'assets/galary/cybertrong_gaming_fitesa2023.jpg' },
-    { title: 'Cyborg Club Meetup', image: 'assets/galary/club_mettup.jpg' },
-    { title: 'PMCC Championship 2025', image: 'assets/galary/2025_pmcc_championship.jpg' }
-  ]
 };

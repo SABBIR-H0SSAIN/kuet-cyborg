@@ -48,6 +48,7 @@ public partial class _Default : Page
             lblResponse.Visible = false;
             BindGames();
             BindEvents();
+            BindGallery();
         }
     }
 
@@ -98,6 +99,31 @@ public partial class _Default : Page
         catch (Exception ex)
         {
             System.Diagnostics.Debug.WriteLine("BindEvents Error: " + ex.Message);
+        }
+    }
+
+    private void BindGallery()
+    {
+        try
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["CyborgConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM gallery ORDER BY id ASC", connection))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        rptGallery.DataSource = dt;
+                        rptGallery.DataBind();
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("BindGallery Error: " + ex.Message);
         }
     }
 
