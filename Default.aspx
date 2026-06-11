@@ -39,6 +39,7 @@
 <body>
 
   <form id="mainForm" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <!-- Loading Screen -->
     <div class="loader-screen" id="loader">
@@ -363,43 +364,47 @@
 
           <!-- ASP.NET Web Forms contact form -->
           <div class="contact-form reveal-right">
-            <h4 class="form-header">Apply to Join</h4>
-            <div class="form-group">
-              <label for="txtName">Player Name</label>
-              <asp:TextBox ID="txtName" runat="server" placeholder="Enter your IGN or real name" CssClass="aspx-input" />
-              <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName"
-                ErrorMessage="Player name is required." CssClass="field-validation-error" Display="Dynamic" />
-            </div>
-            <div class="form-group">
-              <label for="txtDepartment">Department</label>
-              <asp:TextBox ID="txtDepartment" runat="server" placeholder="e.g. CSE, EEE, ME" CssClass="aspx-input" />
-              <asp:RequiredFieldValidator ID="rfvDept" runat="server" ControlToValidate="txtDepartment"
-                ErrorMessage="Department is required." CssClass="field-validation-error" Display="Dynamic" />
-            </div>
-            <div class="form-group">
-              <label for="ddlGame">Primary Game</label>
-              <asp:DropDownList ID="ddlGame" runat="server" CssClass="aspx-select">
-                <asp:ListItem Value="" Text="Select your main game" />
-                <asp:ListItem Value="valorant" Text="Valorant" />
-                <asp:ListItem Value="pubg-mobile" Text="PUBG Mobile" />
-                <asp:ListItem Value="cs2" Text="CS2" />
-                <asp:ListItem Value="lol" Text="League of Legends" />
-                <asp:ListItem Value="dota2" Text="Dota 2" />
-                <asp:ListItem Value="free-fire" Text="Free Fire" />
-                <asp:ListItem Value="other" Text="Other" />
-              </asp:DropDownList>
-              <asp:RequiredFieldValidator ID="rfvGame" runat="server" ControlToValidate="ddlGame"
-                InitialValue="" ErrorMessage="Please select a game." CssClass="field-validation-error" Display="Dynamic" />
-            </div>
-            <div class="form-group">
-              <label for="txtMessage">Why Cyborg?</label>
-              <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Rows="3"
-                placeholder="Tell us why you want to join the squad..." CssClass="aspx-input" />
-            </div>
-            <asp:Button ID="btnSubmit" runat="server" Text="⚡ Submit Application"
-              CssClass="form-submit" OnClick="btnSubmit_Click" UseSubmitBehavior="true" />
-            <asp:Label ID="lblResponse" runat="server" CssClass="form-response" Visible="false"
-              Text="✅ Application received! We'll contact you on Discord." />
+            <asp:UpdatePanel ID="upContact" runat="server">
+              <ContentTemplate>
+                <h4 class="form-header">Apply to Join</h4>
+                <div class="form-group">
+                  <label for="txtName">Player Name</label>
+                  <asp:TextBox ID="txtName" runat="server" placeholder="Enter your IGN or real name" CssClass="aspx-input" />
+                  <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName"
+                    ErrorMessage="Player name is required." CssClass="field-validation-error" Display="Dynamic" />
+                </div>
+                <div class="form-group">
+                  <label for="txtDepartment">Department</label>
+                  <asp:TextBox ID="txtDepartment" runat="server" placeholder="e.g. CSE, EEE, ME" CssClass="aspx-input" />
+                  <asp:RequiredFieldValidator ID="rfvDept" runat="server" ControlToValidate="txtDepartment"
+                    ErrorMessage="Department is required." CssClass="field-validation-error" Display="Dynamic" />
+                </div>
+                <div class="form-group">
+                  <label for="ddlGame">Primary Game</label>
+                  <asp:DropDownList ID="ddlGame" runat="server" CssClass="aspx-select">
+                    <asp:ListItem Value="" Text="Select your main game" />
+                    <asp:ListItem Value="valorant" Text="Valorant" />
+                    <asp:ListItem Value="pubg-mobile" Text="PUBG Mobile" />
+                    <asp:ListItem Value="cs2" Text="CS2" />
+                    <asp:ListItem Value="lol" Text="League of Legends" />
+                    <asp:ListItem Value="dota2" Text="Dota 2" />
+                    <asp:ListItem Value="free-fire" Text="Free Fire" />
+                    <asp:ListItem Value="other" Text="Other" />
+                  </asp:DropDownList>
+                  <asp:RequiredFieldValidator ID="rfvGame" runat="server" ControlToValidate="ddlGame"
+                    InitialValue="" ErrorMessage="Please select a game." CssClass="field-validation-error" Display="Dynamic" />
+                </div>
+                <div class="form-group">
+                  <label for="txtMessage">Why Cyborg?</label>
+                  <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Rows="3"
+                    placeholder="Tell us why you want to join the squad..." CssClass="aspx-input" />
+                </div>
+                <asp:Button ID="btnSubmit" runat="server" Text="⚡ Submit Application"
+                  CssClass="form-submit" OnClick="btnSubmit_Click" UseSubmitBehavior="false" />
+                <asp:Label ID="lblResponse" runat="server" CssClass="form-response" Visible="false"
+                  Text="✅ Application received! We'll contact you on Discord." />
+              </ContentTemplate>
+            </asp:UpdatePanel>
           </div>
         </div>
       </div>
@@ -456,16 +461,7 @@
     <script src="scripts/modules/gallery.js"></script>
 
 
-    <!-- Fix ASP.NET WebForms postback anchor scroll jump -->
-    <script>
-      // Preserve smooth scroll on PostBack (form submit scrolls back to #contact)
-      window.addEventListener('load', function () {
-        var response = document.getElementById('<%= lblResponse.ClientID %>');
-        if (response && response.style.display !== 'none') {
-          response.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      });
-    </script>
+
 
   </form>
 </body>

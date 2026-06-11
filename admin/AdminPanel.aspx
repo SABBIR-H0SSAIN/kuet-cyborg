@@ -71,7 +71,7 @@
                 <div class="controls-bar glass">
                     <asp:DropDownList ID="ddlFilter" runat="server" CssClass="select-control" AutoPostBack="true" OnSelectedIndexChanged="FilterSort_Changed">
                         <asp:ListItem Text="All Responses" Value="All"></asp:ListItem>
-                        <asp:ListItem Text="Pending" Value="Pending"></asp:ListItem>
+                        <asp:ListItem Text="Pending" Value="Pending" Selected="True"></asp:ListItem>
                         <asp:ListItem Text="Completed" Value="Completed"></asp:ListItem>
                     </asp:DropDownList>
 
