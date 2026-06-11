@@ -177,6 +177,14 @@
           <div class="section-line"></div>
         </div>
         <div class="achievements-grid">
+          <asp:Repeater ID="rptAchievements" runat="server">
+            <ItemTemplate>
+              <div class="achievement-card reveal">
+                <span class="achievement-number counter" data-target="<%# Eval("target") %>">0</span>
+                <span class="achievement-label"><%# Eval("label") %></span>
+              </div>
+            </ItemTemplate>
+          </asp:Repeater>
         </div>
       </div>
     </section>
@@ -292,25 +300,25 @@
             <span class="community-icon"><i class="fab fa-discord"></i></span>
             <h4>Discord Server</h4>
             <p>Join 200+ gamers in our active Discord community. Voice chat, scrims, memes, and more.</p>
-            <a href="#" class="community-link">Join Server →</a>
+            <a href="<%= DiscordUrl %>" class="community-link" target="_blank">Join Server →</a>
           </div>
           <div class="community-card reveal">
             <span class="community-icon"><i class="fab fa-facebook-f"></i></span>
             <h4>Facebook Page</h4>
             <p>Follow us for event announcements, highlights, and behind-the-scenes content.</p>
-            <a href="#" class="community-link">Follow Us →</a>
+            <a href="<%= FacebookUrl %>" class="community-link" target="_blank">Follow Us →</a>
           </div>
           <div class="community-card reveal">
             <span class="community-icon"><i class="fab fa-instagram"></i></span>
             <h4>Instagram</h4>
             <p>Reels, stories, and tournament highlights. See Cyborg in action.</p>
-            <a href="#" class="community-link">Follow Us →</a>
+            <a href="<%= InstagramUrl %>" class="community-link" target="_blank">Follow Us →</a>
           </div>
           <div class="community-card reveal">
             <span class="community-icon"><i class="fab fa-youtube"></i></span>
             <h4>YouTube Channel</h4>
             <p>Watch tournament VODs, gameplay highlights, and behind-the-scenes content.</p>
-            <a href="#" class="community-link">Subscribe →</a>
+            <a href="<%= YoutubeUrl %>" class="community-link" target="_blank">Subscribe →</a>
           </div>
         </div>
         <div class="community-cta reveal">
@@ -346,7 +354,7 @@
             </div>
             <div class="contact-detail">
               <div class="contact-detail-icon"><i class="fab fa-discord"></i></div>
-              <span>discord.gg/cyborg-kuet</span>
+              <a href="<%= DiscordUrl %>" target="_blank" style="color: inherit; text-decoration: none;"><span>discord.gg/cyborg-kuet</span></a>
             </div>
             <div class="contact-detail">
               <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
@@ -356,8 +364,7 @@
 
           <!-- ASP.NET Web Forms contact form -->
           <div class="contact-form reveal-right">
-            <h4 class="form-header">Player Registration</h4>
-            <p class="form-subheader">// Initialize recruitment protocol</p>
+            <h4 class="form-header">Apply to Join</h4>
             <div class="form-group">
               <label for="txtName">Player Name</label>
               <asp:TextBox ID="txtName" runat="server" placeholder="Enter your IGN or real name" CssClass="aspx-input" />
@@ -419,10 +426,10 @@
           </div>
           <div class="footer-group">
             <h4>Connect</h4>
-            <a href="#"><i class="fab fa-discord"></i> Discord</a>
-            <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="<%= DiscordUrl %>" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+            <a href="<%= FacebookUrl %>" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="<%= InstagramUrl %>" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="<%= YoutubeUrl %>" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
           </div>
           <div class="footer-group">
             <h4>More</h4>

@@ -7,6 +7,12 @@ public partial class admin_login : Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["AdminAuth"] != null && (bool)Session["AdminAuth"] == true)
+        {
+            Response.Redirect("AdminPanel.aspx");
+            return;
+        }
+
         if (!IsPostBack)
         {
             lblError.Visible = false;
@@ -15,7 +21,7 @@ public partial class admin_login : Page
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        string user = txtUsername.Text.Trim();
+        string email = txtEmail.Text.Trim();
         string pass = txtPassword.Text.Trim();
 
         string connString = ConfigurationManager.ConnectionStrings["CyborgConnectionString"].ConnectionString;
@@ -26,10 +32,10 @@ public partial class admin_login : Page
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
-                string query = "SELECT COUNT(1) FROM admins WHERE username = @Username AND password = @Password";
+                string query = "SELECT COUNT(1) FROM admins WHERE email = @Email AND password = @Password";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Username", user);
+                    cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@Password", pass);
                     
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
@@ -55,7 +61,7 @@ public partial class admin_login : Page
         }
         else
         {
-            lblError.Text = "Invalid username or password.";
+            lblError.Text = "Invalid email or password.";
             lblError.Visible = true;
         }
     }

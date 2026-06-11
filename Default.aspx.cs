@@ -7,6 +7,11 @@ using System.Drawing;
 
 public partial class _Default : Page
 {
+    public string DiscordUrl { get; set; } = "#";
+    public string FacebookUrl { get; set; } = "#";
+    public string InstagramUrl { get; set; } = "#";
+    public string YoutubeUrl { get; set; } = "#";
+
     protected void Page_Load(object sender, EventArgs e)
     {
         // Generate rounded favicon if it doesn't exist
@@ -46,11 +51,71 @@ public partial class _Default : Page
         if (!IsPostBack)
         {
             lblResponse.Visible = false;
+            LoadSettings();
             BindGames();
             BindEvents();
             BindGallery();
+            BindAchievements();
         }
     }
+
+    private void LoadSettings()
+    {
+        try
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["CyborgConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT setting_key, setting_value FROM settings", connection))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string key = reader["setting_key"].ToString();
+                            string val = reader["setting_value"].ToString();
+                            if (key == "DiscordUrl") DiscordUrl = val;
+                            else if (key == "FacebookUrl") FacebookUrl = val;
+                            else if (key == "InstagramUrl") InstagramUrl = val;
+                            else if (key == "YoutubeUrl") YoutubeUrl = val;
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("LoadSettings Error: " + ex.Message);
+        }
+    }
+
+    private void BindAchievements()
+    {
+        try
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["CyborgConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM achievements ORDER BY id ASC", connection))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        rptAchievements.DataSource = dt;
+                        rptAchievements.DataBind();
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("BindAchievements Error: " + ex.Message);
+        }
+    }
+
+
 
     private void BindGames()
     {

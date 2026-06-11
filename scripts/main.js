@@ -113,17 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   function renderDynamicLists() {
-    // 1. Achievements
-    const achievementsGrid = document.querySelector('.achievements-grid');
-    if (achievementsGrid && CONFIG.achievements) {
-      achievementsGrid.innerHTML = CONFIG.achievements.map(item => `
-        <div class="achievement-card reveal">
-          <span class="achievement-icon">${item.icon}</span>
-          <span class="achievement-number counter" data-target="${item.target}">0</span>
-          <span class="achievement-label">${item.label}</span>
-        </div>
-      `).join('');
-    }
 
 
 

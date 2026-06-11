@@ -16,8 +16,8 @@
                 <p>Sign in to manage KUET Cyborg forms</p>
                 
                 <div class="form-group">
-                    <label for="txtUsername">Username</label>
-                    <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Enter username" required="required"></asp:TextBox>
+                    <label for="txtEmail">Email</label>
+                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" placeholder="Enter email" required="required"></asp:TextBox>
                 </div>
                 
                 <div class="form-group">

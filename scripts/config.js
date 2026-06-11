@@ -7,12 +7,6 @@ const CONFIG = {
     'The Battlefield Awaits...',
   ],
 
-  achievements: [
-    { icon: '🏆', target: 25, label: 'Tournaments Won' },
-    { icon: '🎮', target: 50, label: 'Events Hosted' },
-    { icon: '👥', target: 200, label: 'Active Members' },
-    { icon: 'fas fa-trophy', target: 150, label: 'Matches Played' }
-  ],
 
   team: [
     { name: 'Rameen Mahmood', role: 'President', initials: 'RM', image: 'assets/members/rameen-mahmood.jpg', socials: { facebook: '#', discord: '#', linkedin: '#' } },
