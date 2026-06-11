@@ -125,8 +125,8 @@ public partial class admin_Settings : Page
                     {
                         DataTable dt = new DataTable();
                         sda.Fill(dt);
-                        gvStats.DataSource = dt;
-                        gvStats.DataBind();
+                        rptStats.DataSource = dt;
+                        rptStats.DataBind();
                     }
                 }
             }
@@ -134,100 +134,44 @@ public partial class admin_Settings : Page
         catch (Exception ex)
         {
             System.Diagnostics.Debug.WriteLine("BindStatsGrid Error: " + ex.Message);
-            ShowStatusMessage("Error binding statistics grid: " + ex.Message, false);
+            ShowStatusMessage("Error binding statistics: " + ex.Message, false);
         }
     }
 
-
-
-    protected void btnCloseModal_Click(object sender, EventArgs e)
-    {
-        pnlModal.Visible = false;
-    }
-
-    protected void gvStats_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-        if (e.CommandName == "EditStat")
-        {
-            int id = Convert.ToInt32(e.CommandArgument);
-            LoadStatForEdit(id);
-        }
-    }
-
-    private void LoadStatForEdit(int id)
+    protected void btnSaveStats_Click(object sender, EventArgs e)
     {
         try
         {
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
-                string query = "SELECT id, icon, target, label FROM achievements WHERE id = @Id";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                foreach (RepeaterItem item in rptStats.Items)
                 {
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    HiddenField hfStatId = (HiddenField)item.FindControl("hfStatId");
+                    TextBox txtTarget = (TextBox)item.FindControl("txtTarget");
+
+                    if (hfStatId != null && txtTarget != null && !string.IsNullOrEmpty(hfStatId.Value))
                     {
-                        if (reader.Read())
+                        int id = Convert.ToInt32(hfStatId.Value);
+                        int target = Convert.ToInt32(txtTarget.Text);
+
+                        string query = "UPDATE achievements SET target = @Target WHERE id = @Id";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                            litModalTitle.Text = "Edit Battle Stat";
-                            hfStatId.Value = reader["id"].ToString();
-                            txtTarget.Text = reader["target"].ToString();
-                            txtLabel.Text = reader["label"].ToString();
-                            pnlModal.Visible = true;
+                            cmd.Parameters.AddWithValue("@Target", target);
+                            cmd.Parameters.AddWithValue("@Id", id);
+                            cmd.ExecuteNonQuery();
                         }
                     }
                 }
             }
-        }
-        catch (Exception ex)
-        {
-            System.Diagnostics.Debug.WriteLine("LoadStatForEdit Error: " + ex.Message);
-            ShowStatusMessage("Error loading stat for edit: " + ex.Message, false);
-        }
-    }
-
-
-
-    protected void btnSaveStat_Click(object sender, EventArgs e)
-    {
-        int target = Convert.ToInt32(txtTarget.Text);
-        string label = txtLabel.Text.Trim();
-        string idStr = hfStatId.Value;
-
-        try
-        {
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                conn.Open();
-                string query;
-                if (string.IsNullOrEmpty(idStr))
-                {
-                    query = "INSERT INTO achievements (target, label) VALUES (@Target, @Label)";
-                }
-                else
-                {
-                    query = "UPDATE achievements SET target = @Target, label = @Label WHERE id = @Id";
-                }
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Target", target);
-                    cmd.Parameters.AddWithValue("@Label", label);
-                    if (!string.IsNullOrEmpty(idStr))
-                    {
-                        cmd.Parameters.AddWithValue("@Id", Convert.ToInt32(idStr));
-                    }
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            pnlModal.Visible = false;
+            ShowStatusMessage("Battle statistics saved successfully!", true);
             BindStatsGrid();
-            ShowStatusMessage("Battle stat saved successfully!", true);
         }
         catch (Exception ex)
         {
-            System.Diagnostics.Debug.WriteLine("SaveStat Error: " + ex.Message);
-            ShowStatusMessage("Error saving battle stat: " + ex.Message, false);
+            System.Diagnostics.Debug.WriteLine("SaveStats Error: " + ex.Message);
+            ShowStatusMessage("Error saving battle statistics: " + ex.Message, false);
         }
     }
 }

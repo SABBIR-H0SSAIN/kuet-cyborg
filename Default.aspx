@@ -79,7 +79,6 @@
 
     <!-- Hero Section -->
     <section id="hero">
-      <canvas id="hero-canvas"></canvas>
       <div class="hero-grid-overlay"></div>
       <div class="hero-gradient-overlay"></div>
 
@@ -454,7 +453,6 @@
 
     <script src="scripts/config.js?v=2"></script>
     <script src="scripts/main.js?v=2"></script>
-    <script src="scripts/modules/particles.js"></script>
     <script src="scripts/modules/gallery.js"></script>
 
 

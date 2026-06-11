@@ -5,15 +5,11 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-image: url('../../assets/backgrounds/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
-
-#hero-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  cursor: auto !important;
-}
-
 .hero-grid-overlay {
   position: absolute;
   inset: 0;
