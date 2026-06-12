@@ -5,10 +5,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url('../../assets/backgrounds/hero-bg.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: radial-gradient(circle at 80% 20%, var(--bg-secondary) 0%, var(--bg-primary) 60%);
 }
 .hero-grid-overlay {
   position: absolute;

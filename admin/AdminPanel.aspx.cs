@@ -39,7 +39,7 @@ public partial class admin_AdminPanel : Page
         string filter = ddlFilter.SelectedValue;
         string sort = ddlSort.SelectedValue;
 
-        string query = "SELECT response_id, player_name, department, game, message, submitted_date, status FROM form_response WHERE 1=1 ";
+        string query = "SELECT response_id, player_name, email, department, game, message, submitted_date, status FROM form_response WHERE 1=1 ";
         
         if (filter == "Pending")
         {

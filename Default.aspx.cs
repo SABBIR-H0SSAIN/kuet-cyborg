@@ -197,15 +197,17 @@ public partial class _Default : Page
         if (Page.IsValid)
         {
             string playerName = txtName.Text.Trim();
+            string email = txtEmail.Text.Trim();
             string department = txtDepartment.Text.Trim();
             string game = ddlGame.SelectedValue;
             string message = txtMessage.Text.Trim();
 
-            bool isSuccess = SaveFormResponseToDatabase(playerName, department, game, message);
+            bool isSuccess = SaveFormResponseToDatabase(playerName, email, department, game, message);
 
             if (isSuccess)
             {
                 txtName.Text = string.Empty;
+                txtEmail.Text = string.Empty;
                 txtDepartment.Text = string.Empty;
                 ddlGame.SelectedIndex = 0;
                 txtMessage.Text = string.Empty;
@@ -223,7 +225,7 @@ public partial class _Default : Page
         }
     }
 
-    private bool SaveFormResponseToDatabase(string playerName, string department, string game, string message)
+    private bool SaveFormResponseToDatabase(string playerName, string email, string department, string game, string message)
     {
         try
         {
@@ -234,12 +236,13 @@ public partial class _Default : Page
                 connection.Open();
 
                 string query = @"INSERT INTO form_response 
-                               (player_name, department, game, message, submitted_date) 
-                               VALUES (@PlayerName, @Department, @Game, @Message, @SubmittedDate)";
+                               (player_name, email, department, game, message, submitted_date) 
+                               VALUES (@PlayerName, @Email, @Department, @Game, @Message, @SubmittedDate)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@PlayerName", playerName);
+                    command.Parameters.AddWithValue("@Email", email);
                     command.Parameters.AddWithValue("@Department", department);
                     command.Parameters.AddWithValue("@Game", game);
                     command.Parameters.AddWithValue("@Message", message);

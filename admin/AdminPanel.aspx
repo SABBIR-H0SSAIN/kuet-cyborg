@@ -87,6 +87,13 @@
                         OnRowCommand="gvResponses_RowCommand" DataKeyNames="response_id">
                         <Columns>
                             <asp:BoundField DataField="player_name" HeaderText="Name" />
+                            <asp:TemplateField HeaderText="Email">
+                                <ItemTemplate>
+                                    <a href='<%# "mailto:" + Eval("email") %>' style="color: inherit; text-decoration: underline;">
+                                        <%# Eval("email") %>
+                                    </a>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField DataField="department" HeaderText="Department" />
                             <asp:BoundField DataField="game" HeaderText="Game" />
                             <asp:BoundField DataField="message" HeaderText="Message" />

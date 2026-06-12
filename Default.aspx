@@ -11,7 +11,7 @@
   <meta name="keywords" content="esports, gaming club, KUET, Cyborg, competitive gaming, university esports" />
   <link rel="stylesheet" href="styles/base.css" />
   <link rel="stylesheet" href="styles/components.css" />
-  <link rel="stylesheet" href="styles/sections/hero.css" />
+  <link rel="stylesheet" href="styles/sections/hero.css?v=3" />
   <link rel="stylesheet" href="styles/sections/about.css" />
   <link rel="stylesheet" href="styles/sections/achievements.css" />
   <link rel="stylesheet" href="styles/sections/games.css" />
@@ -372,6 +372,12 @@
                   <asp:TextBox ID="txtName" runat="server" placeholder="Enter your IGN or real name" CssClass="aspx-input" />
                   <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName"
                     ErrorMessage="Player name is required." CssClass="field-validation-error" Display="Dynamic" />
+                </div>
+                <div class="form-group">
+                  <label for="txtEmail">Email Address</label>
+                  <asp:TextBox ID="txtEmail" runat="server" placeholder="Enter your email" CssClass="aspx-input" TextMode="Email" />
+                  <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail"
+                    ErrorMessage="Email address is required." CssClass="field-validation-error" Display="Dynamic" />
                 </div>
                 <div class="form-group">
                   <label for="txtDepartment">Department</label>

@@ -243,6 +243,10 @@ body {
 .styled-table th, .styled-table td {
     padding: 1rem;
     border-bottom: 1px solid var(--border-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 300px;
 }
 
 .styled-table th {
